@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".authentication.WelcomeActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_120sdp"
+        android:background="@drawable/background_welcome"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/exp_tt"
+        android:text="Experience the power of realtime tracking"
+        android:textSize="@dimen/_25sdp"
+        android:textColor="@color/grey"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_margin="@dimen/_50sdp"/>
+    <RelativeLayout
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/exp_tt"
+        android:gravity="center"
+        android:id="@+id/tvLoginRel"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/et_rect_solid_red"
+        android:padding="8sp"
+        tools:ignore="RtlHardcoded">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="25sp"
+            android:padding="3sp"
+            android:text="Login"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvLoginRel"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:gravity="center"
+        android:id="@+id/tv_signUp_rel"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/et_rect_solid_black"
+        android:padding="8sp"
+        tools:ignore="RtlHardcoded">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="25sp"
+            android:padding="3sp"
+            android:text="Sign Up"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+</RelativeLayout>

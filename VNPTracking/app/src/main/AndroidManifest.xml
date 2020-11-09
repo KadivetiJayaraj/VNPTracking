@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.dev.vnptracking">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".settings.AppSettingsActivity"></activity>
+        <activity android:name=".settings.ImmobilizeActivity" />
+        <activity android:name=".geofence.AddGeofenceActivity" />
+        <activity android:name=".settings.ProfileActivity" />
+        <activity android:name=".settings.HelpActivity" />
+        <activity android:name=".settings.SmsCommandActivity" />
+        <activity android:name=".newvehicle.NewVehicleActivity" />
+        <activity android:name=".settings.ManageVehiclesActivity" />
+        <activity android:name=".settings.ManageGeofenceActivity" />
+        <activity android:name=".settings.ShareActivity" />
+        <activity android:name=".settings.ReportsActivity" />
+        <activity android:name=".addvehicle.AddVehicleActivity" />
+        <activity android:name=".dashboard.FasttagActivity" />
+        <activity android:name=".dashboard.SpyModeActivity" />
+        <activity android:name=".dashboard.NotificationActivity" />
+        <activity android:name=".dashboard.SettingActivity" />
+        <activity android:name=".dashboard.VehiclesActivity" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <activity android:name=".authentication.DetailsSignUpActivity" />
+        <activity android:name=".authentication.TermsAndConditionActivity" />
+        <activity android:name=".authentication.OtpActivity" />
+        <activity android:name=".dashboard.DashboardActivity" />
+        <activity android:name=".authentication.ForgetPasswordActivity" />
+        <activity android:name=".authentication.SignUpActivity" />
+        <activity android:name=".authentication.LoginActivity" />
+        <activity android:name=".authentication.WelcomeActivity" />
+        <activity android:name=".splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyD5IrFPGREOXhHIk8pjzNqiwpVauRiq_gs" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+    </application>
+
+</manifest>

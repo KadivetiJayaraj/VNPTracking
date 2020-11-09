@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".geofence.AddGeofenceActivity">
+
+    <RelativeLayout
+        android:id="@+id/mainRel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottomRel">
+
+        <fragment
+            android:id="@+id/myMap"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".dashboard.DashboardActivity" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/change_mode_Rel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:background="@drawable/et_circle_black">
+
+        <ImageView
+            android:id="@+id/search"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/places_ic_search" />
+    </RelativeLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_marginRight="@dimen/_16sdp"
+            android:clickable="true"
+            android:onClick="onBaseFabClick"
+            android:tint="@android:color/white"
+            app:fabSize="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_main"
+            app:layout_constraintRight_toRightOf="@+id/activity_main"
+            app:srcCompat="@drawable/fab_add" />
+
+        <LinearLayout
+            android:id="@+id/circleLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/polygonLayout"
+            app:layout_constraintLeft_toLeftOf="@+id/polygonLayout"
+            app:layout_constraintRight_toRightOf="@+id/activity_main">
+            <TextView
+                android:id="@+id/circleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:elevation="2dp"
+                android:fontFamily="sans-serif"
+                android:padding="5dip"
+                android:text="Circle"
+                android:background="@android:color/black"
+                android:textColor="@android:color/white"
+                android:typeface="normal" />
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/circleFab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:onClick="onCircleFab"
+                android:tint="@android:color/black"
+                app:fabSize="mini"
+                app:srcCompat="@drawable/circle" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/polygonLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/polylineLayout"
+            app:layout_constraintLeft_toLeftOf="@+id/polylineLayout"
+            app:layout_constraintRight_toRightOf="@+id/activity_main">
+            <TextView
+                android:id="@+id/polygonTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:elevation="2dp"
+                android:fontFamily="sans-serif"
+                android:padding="5dip"
+                android:text="Polygon"
+                android:background="@android:color/black"
+                android:textColor="@android:color/white"
+                android:typeface="normal" />
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/polygonFab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:onClick="onPolygonFab"
+                android:tint="@android:color/black"
+                app:fabSize="mini"
+                app:srcCompat="@drawable/trail" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/polylineLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/fab"
+            app:layout_constraintRight_toRightOf="@+id/activity_main">
+            <TextView
+                android:id="@+id/polylineTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:elevation="2dp"
+                android:fontFamily="sans-serif"
+                android:padding="5dip"
+                android:text="Polyline"
+                android:background="@android:color/black"
+                android:textColor="@android:color/white"
+                android:typeface="normal" />
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/polylineFab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:onClick="onPolylineFab"
+                android:tint="@android:color/black"
+                app:fabSize="mini"
+                app:srcCompat="@drawable/polyline" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/et_rect_red" />
+
+</RelativeLayout>
